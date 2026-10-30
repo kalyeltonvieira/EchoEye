@@ -1,0 +1,23 @@
+{
+  "protection": {
+    "enabled": true,
+    "confidenceThreshold": 75,
+    "fileVelocityThreshold": 100,
+    "entropyThreshold": 7.5
+  },
+  "decoy": {
+    "enabled": true,
+    "decoyCount": 50,
+    "maxDecoysPerPath": 10
+  },
+  "recovery": {
+    "enabled": true,
+    "retentionDays": 90,
+    "automaticBackupIntervalHours": 6
+  },
+  "intelligence": {
+    "enabled": true,
+    "sharingEnabled": true,
+    "syncIntervalMinutes": 60
+  }
+}

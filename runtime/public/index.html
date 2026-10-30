@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EchoEye X Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Ransomware resilience platform</p>
+      <h1>EchoEye X</h1>
+    </div>
+    <div class="header-actions">
+      <span id="runtime-status" class="status-pill">Starting</span>
+      <button id="refresh-button" class="button" type="button">Refresh</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="posture-panel" aria-labelledby="posture-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Security posture</p>
+          <h2 id="posture-title">Fleet overview</h2>
+        </div>
+        <span id="posture-status" class="severity warning">Warning</span>
+      </div>
+      <div class="metric-grid">
+        <article class="metric">
+          <span class="metric-label">Active incidents</span>
+          <strong id="active-incidents">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">Critical alerts</span>
+          <strong id="critical-alerts">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">Protected devices</span>
+          <strong id="protected-devices">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">Recovery integrity</span>
+          <strong id="recovery-score">0%</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="workbench">
+      <nav class="tabs" aria-label="Dashboard views">
+        <button class="tab active" data-tab="alerts" type="button">Alerts</button>
+        <button class="tab" data-tab="incidents" type="button">Incidents</button>
+        <button class="tab" data-tab="recovery" type="button">Recovery</button>
+        <button class="tab" data-tab="intel" type="button">Intel</button>
+        <button class="tab" data-tab="health" type="button">Health</button>
+      </nav>
+
+      <section id="alerts" class="tab-panel active" aria-labelledby="alerts-tab">
+        <div class="section-heading compact">
+          <h2>Active alerts</h2>
+          <span id="alert-count" class="count">0</span>
+        </div>
+        <div id="alerts-table" class="data-table" role="table" aria-label="Active alerts"></div>
+      </section>
+
+      <section id="incidents" class="tab-panel" aria-labelledby="incidents-tab">
+        <div class="split">
+          <div>
+            <div class="section-heading compact">
+              <h2>Incident queue</h2>
+              <span id="incident-count" class="count">0</span>
+            </div>
+            <div id="incident-list" class="list"></div>
+          </div>
+          <div>
+            <div class="section-heading compact">
+              <h2>Timeline</h2>
+              <span id="timeline-id" class="count">None</span>
+            </div>
+            <ol id="timeline-list" class="timeline"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="recovery" class="tab-panel" aria-labelledby="recovery-tab">
+        <div class="section-heading compact">
+          <h2>Recovery status</h2>
+          <span id="restore-rate" class="count">0%</span>
+        </div>
+        <div id="recovery-grid" class="metric-grid narrow"></div>
+        <div id="recovery-jobs" class="list"></div>
+      </section>
+
+      <section id="intel" class="tab-panel" aria-labelledby="intel-tab">
+        <div class="section-heading compact">
+          <h2>Threat intelligence</h2>
+          <span id="feed-version" class="count">v0</span>
+        </div>
+        <div id="intel-summary" class="metric-grid narrow"></div>
+        <div id="threat-families" class="list"></div>
+      </section>
+
+      <section id="health" class="tab-panel" aria-labelledby="health-tab">
+        <div class="section-heading compact">
+          <h2>Device and service health</h2>
+          <span id="health-count" class="count">0</span>
+        </div>
+        <div id="health-list" class="list"></div>
+      </section>
+    </section>
+
+    <aside class="side-panel">
+      <section>
+        <div class="section-heading compact">
+          <h2>Confidence model</h2>
+          <span id="score-level" class="severity high">High</span>
+        </div>
+        <div class="score-visual" aria-hidden="true">
+          <div id="score-bar" class="score-bar"></div>
+        </div>
+        <form id="score-form" class="score-form">
+          <label>File velocity <input name="fileVelocity" type="range" min="0" max="1" step="0.05" value="0.85"></label>
+          <label>Entropy shift <input name="entropy" type="range" min="0" max="1" step="0.05" value="0.75"></label>
+          <label>Decoy interaction <input name="decoyInteraction" type="range" min="0" max="1" step="0.05" value="1"></label>
+          <label>Process reputation <input name="processReputation" type="range" min="0" max="1" step="0.05" value="0.7"></label>
+          <label>Behavior anomaly <input name="behaviorAnomaly" type="range" min="0" max="1" step="0.05" value="0.65"></label>
+          <label>Network activity <input name="networkActivity" type="range" min="0" max="1" step="0.05" value="0.25"></label>
+        </form>
+        <p id="score-reasoning" class="reasoning">Calculating...</p>
+      </section>
+
+      <section>
+        <div class="section-heading compact">
+          <h2>Historical trends</h2>
+        </div>
+        <div id="trend-chart" class="trend-chart" aria-label="Historical trends"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
+

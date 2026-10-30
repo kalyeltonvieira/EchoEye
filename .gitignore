@@ -1,0 +1,47 @@
+# Build outputs
+build/
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# OS files
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Package files
+*.nupkg
+*.snupkg
+
+# Local configuration (keep templates)
+config/local.config.json
+config/device.identity.json
+
+# Database files (local dev)
+*.db
+*.sqlite
+*.sqlite3

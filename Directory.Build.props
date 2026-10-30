@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="EchoEye.Core.Interfaces" />
+    <Using Include="EchoEye.Core.Utilities" />
+    <Using Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+</Project>
